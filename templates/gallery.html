@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="featured-cars">
+
+    <div class="section-title">
+        <p>Luxury Collection</p>
+        <h2>Sports Car Gallery</h2>
+    </div>
+
+    <div class="cars-grid">
+
+        {% for car in cars %}
+
+        <a href="/car/{{ car.brand }}/{{ car.model|replace(' ','-') }}"
+           class="car-card">
+
+            <img class="car-image"
+                 src="{{ url_for('static', filename=car.image) }}"
+                 alt="{{ car.brand }} {{ car.model }}">
+
+            <div class="car-content">
+
+                <span class="badge">
+                    {{ car.category }}
+                </span>
+
+                <h3>
+                    {{ car.brand }} {{ car.model }}
+                </h3>
+
+            </div>
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

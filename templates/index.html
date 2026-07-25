@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Velocix AI
+
+{% endblock %}
+
+{% block content %}
+
+{% block page_css %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+{% endblock %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-tag">
+            AI Powered Sports Car Platform
+        </p>
+
+        <h1>
+            Discover The World's
+            <span>Fastest Sports Cars</span>
+        </h1>
+
+        <p class="hero-description">
+
+            Explore premium sports cars, detailed specifications,
+            AI-powered assistance, intelligent search,
+            and a luxury browsing experience — all in one place.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/brands" class="btn-primary">
+
+                Explore Brands
+
+            </a>
+
+            <a href="/cars" class="btn-secondary">
+
+                View Cars
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+FEATURED BRANDS
+========================= -->
+
+<section class="featured-brands">
+
+    <div class="section-title">
+
+        <p>Premium Manufacturers</p>
+
+        <h2>Featured Brands</h2>
+
+    </div>
+
+    <div class="brand-grid">
+
+       <a class="brand-card" href="{{ url_for('cars', brand='Ferrari') }}">
+    <h3>Ferrari</h3>
+</a>
+
+       <a class="brand-card" href="{{ url_for('cars', brand='Lamborghini') }}">
+    <h3>Lamborghini</h3>
+</a>
+
+       <a class="brand-card" href="{{ url_for('cars', brand='Bugatti') }}">
+    <h3>Bugatti</h3>
+</a>
+
+       <a class="brand-card" href="{{ url_for('cars', brand='McLaren') }}">
+    <h3>McLaren</h3>
+</a>
+
+        <a class="brand-card" href="{{ url_for('cars', brand='Porsche') }}">
+    <h3>Porsche</h3>
+</a>
+
+       <a class="brand-card" href="{{ url_for('cars', brand='Koenigsegg') }}">
+    <h3>Koenigsegg</h3>
+</a>
+    </div>
+
+</section>
+
+<!-- =========================
+FEATURED CARS
+========================= -->
+
+<section class="featured-cars">
+
+    <div class="section-title">
+
+        <p>Performance Machines</p>
+
+        <h2>Featured Sports Cars</h2>
+
+    </div>
+
+    <div class="cars-grid">
+
+        <div class="car-card">
+            <h3>Ferrari SF90 Stradale</h3>
+            <p>986 HP • Hybrid V8 • 340 km/h</p>
+            <a href="#">View Details →</a>
+        </div>
+
+        <div class="car-card">
+            <h3>Lamborghini Revuelto</h3>
+            <p>1001 HP • Hybrid V12 • 350 km/h</p>
+            <a href="#">View Details →</a>
+        </div>
+
+        <div class="car-card">
+            <h3>Porsche 911 GT3 RS</h3>
+            <p>518 HP • Flat-6 • 296 km/h</p>
+            <a href="#">View Details →</a>
+        </div>
+
+        <div class="car-card">
+            <h3>McLaren 765LT</h3>
+            <p>755 HP • Twin Turbo V8 • 330 km/h</p>
+            <a href="#">View Details →</a>
+        </div>
+
+        <div class="car-card">
+            <h3>Bugatti Chiron Super Sport</h3>
+            <p>1578 HP • W16 • 440 km/h</p>
+            <a href="#">View Details →</a>
+        </div>
+
+        <div class="car-card">
+            <h3>Koenigsegg Jesko</h3>
+            <p>1600 HP • Twin Turbo V8 • 483 km/h*</p>
+            <a href="#">View Details →</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+WHY VELOCIX AI
+========================= -->
+
+<section class="why-velocix">
+
+    <div class="section-title">
+        <p>Why Choose Us</p>
+        <h2>Built For Every Car Enthusiast</h2>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <i class="fa-solid fa-robot"></i>
+            <h3>AI Chatbot</h3>
+            <p>Ask anything about sports cars, engines, history, specifications and technology.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-compass"></i>
+            <h3>AI Agent</h3>
+            <p>Instantly navigate to the exact brand, model or gallery you're looking for.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-car-side"></i>
+            <h3>Premium Collection</h3>
+            <p>Explore detailed information about the world's most iconic performance cars.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-image"></i>
+            <h3>HD Gallery</h3>
+            <p>Enjoy a premium gallery experience with high-quality sports car images.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+STATS
+========================= -->
+
+<section class="stats">
+
+    <div class="stat-box">
+        <h2>15+</h2>
+        <p>Brands</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>70+</h2>
+        <p>Cars</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>1000+</h2>
+        <p>Specifications</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>24/7</h2>
+        <p>AI Assistant</p>
+    </div>
+
+</section>
+<section class="hero">
+
+    <div class="hero-overlay">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                🚀 Premium Sports Car Database
+            </span>
+
+            <h1>
+                Discover The World's Fastest
+                <span>Supercars</span>
+            </h1>
+
+            <p>
+                Explore detailed specifications, luxury brands,
+                AI-powered search, and the ultimate collection of
+                premium sports cars.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/cars" class="primary-btn">
+                    Explore Cars
+                </a>
+
+                <a href="/brands" class="secondary-btn">
+                    View Brands
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

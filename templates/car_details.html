@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ car.brand }} {{ car.model }}{% endblock %}
+
+{% block content %}
+
+<section class="car-details">
+
+    <div class="details-container">
+
+        <!-- Left Side Image -->
+        <div class="details-image">
+
+            <img src="{{ url_for('static', filename=car.image) }}"
+                 alt="{{ car.brand }} {{ car.model }}">
+
+        </div>
+
+        <!-- Right Side Content -->
+        <div class="details-content">
+
+            <span class="badge">{{ car.category }}</span>
+
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                >
+                <a href="/cars">Cars</a>
+                >
+                {{ car.brand }}
+            </div>
+
+            <h1>{{ car.brand }} {{ car.model }}</h1>
+
+            <p class="description">
+                {{ car.description }}
+            </p>
+
+            <!-- Specification Cards -->
+
+            <div class="spec-grid">
+
+                <div class="spec-card">
+                    <h4>⚡ Horsepower</h4>
+                    <p>{{ car.horsepower }} HP</p>
+                </div>
+
+                <div class="spec-card">
+                    <h4>🚀 Top Speed</h4>
+                    <p>{{ car.top_speed }}</p>
+                </div>
+
+                <div class="spec-card">
+                    <h4>🏁 0–100</h4>
+                    <p>{{ car.acceleration }}</p>
+                </div>
+
+                <div class="spec-card">
+                    <h4>⚙ Engine</h4>
+                    <p>{{ car.engine }}</p>
+                </div>
+
+                <div class="spec-card">
+                    <h4>🔧 Transmission</h4>
+                    <p>{{ car.transmission }}</p>
+                </div>
+
+                <div class="spec-card">
+                    <h4>💰 Price</h4>
+                    <p>{{ car.price }}</p>
+                </div>
+
+            </div>
+
+            <!-- Technical Specification Table -->
+
+            <div class="spec-table">
+
+                <h2>Technical Specifications</h2>
+
+                <table>
+
+                    <tr>
+                        <td>Brand</td>
+                        <td>{{ car.brand }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Model</td>
+                        <td>{{ car.model }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Category</td>
+                        <td>{{ car.category }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Year</td>
+                        <td>{{ car.year }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Country</td>
+                        <td>{{ car.country }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Engine</td>
+                        <td>{{ car.engine }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Horsepower</td>
+                        <td>{{ car.horsepower }} HP</td>
+                    </tr>
+
+                    <tr>
+                        <td>Torque</td>
+                        <td>{{ car.torque }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Transmission</td>
+                        <td>{{ car.transmission }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Drive Type</td>
+                        <td>{{ car.drivetrain }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fuel Type</td>
+                        <td>{{ car.fuel_type }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Seats</td>
+                        <td>{{ car.seats }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Price</td>
+                        <td>{{ car.price }}</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% if related_cars %}
+
+<section class="featured-cars">
+
+    <div class="section-title">
+
+        <p>Same Brand</p>
+
+        <h2>Related Cars</h2>
+
+    </div>
+
+    <div class="cars-grid">
+
+        {% for related in related_cars %}
+
+        <div class="car-card">
+
+            <img class="car-image"
+                 src="{{ url_for('static', filename=related.image) }}"
+                 alt="{{ related.brand }} {{ related.model }}">
+
+            <div class="car-content">
+
+                <span class="badge">
+                    {{ related.category }}
+                </span>
+
+                <h3>
+                    {{ related.brand }} {{ related.model }}
+                </h3>
+
+                <a class="details-btn"
+                   href="/car/{{ related.brand }}/{{ related.model | replace(' ','-') }}">
+
+                    View Details
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+{% endblock %}

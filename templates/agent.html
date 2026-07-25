@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}AI Agent{% endblock %}
+
+{% block content %}
+
+<section class="featured-cars">
+
+    <div class="section-title">
+        <p>AI Navigation</p>
+        <h2>Search Results</h2>
+    </div>
+
+    {% if query %}
+
+    <p style="text-align:center;margin-bottom:30px;">
+        Showing results for <strong>{{ query }}</strong>
+    </p>
+
+    {% endif %}
+
+    {% if results %}
+
+    <div class="cars-grid">
+
+        {% for car in results %}
+
+        <div class="car-card">
+
+            <img class="car-image"
+                 src="{{ url_for('static', filename=car.image) }}"
+                 alt="{{ car.brand }} {{ car.model }}">
+
+            <div class="car-content">
+
+                <span class="badge">{{ car.category }}</span>
+
+                <h3>{{ car.brand }} {{ car.model }}</h3>
+
+                <p><strong>Engine:</strong> {{ car.engine }}</p>
+
+                <p><strong>Horsepower:</strong> {{ car.horsepower }} HP</p>
+
+                <p><strong>Top Speed:</strong> {{ car.top_speed }}</p>
+
+                <p><strong>Price:</strong> {{ car.price }}</p>
+
+                <a class="details-btn"
+                   href="/car/{{ car.brand }}/{{ car.model|replace(' ','-') }}">
+
+                    View Details →
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div style="text-align:center;padding:60px;">
+
+        <h2>No cars found 😢</h2>
+
+        <p>Try searching:</p>
+
+        <br>
+
+        Ferrari • Lamborghini • Porsche • BMW • Audi • McLaren • Koenigsegg • Pagani
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

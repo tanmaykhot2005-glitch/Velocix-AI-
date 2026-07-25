@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Velocix AI{% endblock %}</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block page_css %}{% endblock %}
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <a href="/">Velocix <span>AI</span></a>
+
+            </div>
+
+            <ul class="nav-links">
+
+                <li><a href="/">Home</a></li>
+
+                <li><a href="/brands">Brands</a></li>
+
+                <li><a href="/cars">Cars</a></li>
+
+                <li><a href="/gallery">Gallery</a></li>
+
+                <li><a href="/chatbot">AI Chatbot</a></li>
+
+                <li><a href="/agent">AI Agent</a></li>
+
+            </ul>
+
+            <div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search cars or brands...">
+
+    <button id="searchBtn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+
+</div>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026 Velocix AI • The Future of Sports Car Intelligence
+
+        </p>
+
+    </footer>
+
+    <!-- JS -->
+
+    {% block page_js %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

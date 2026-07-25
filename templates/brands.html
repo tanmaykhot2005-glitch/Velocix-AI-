@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Brands{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/brands.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="featured-brands">
+
+    <div class="section-title">
+        <p>Luxury Manufacturers</p>
+        <h2>Explore Car Brands</h2>
+    </div>
+
+    <div class="brand-grid">
+
+        {% for brand in brands %}
+
+        <a class="brand-card"
+   href="{{ url_for('cars', brand=brand.name) }}">
+
+    <h3>{{ brand.name }}</h3>
+
+    <p>{{ brand.models }} Model{{ 's' if brand.models > 1 else '' }}</p>
+
+    <span>Explore →</span>
+
+</a>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

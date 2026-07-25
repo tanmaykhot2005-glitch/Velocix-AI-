@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Velocix AI Chatbot{% endblock %}
+
+{% block content %}
+
+<section class="chat-section">
+
+    <div class="chat-container">
+
+        <div class="chat-header">
+
+            <h2>🤖 Velocix AI Assistant</h2>
+
+            <p>Ask anything about sports cars.</p>
+
+        </div>
+
+        <div class="chat-box" id="chatBox">
+
+            <div class="bot-message">
+
+                👋 Hello! I'm Velocix AI.
+
+                <br><br>
+
+                You can ask me questions like:
+
+                <ul>
+                    <li>Best Ferrari?</li>
+                    <li>Fastest Lamborghini?</li>
+                    <li>Tell me about Porsche 918 Spyder.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="chat-input">
+
+            <input
+                type="text"
+                id="userInput"
+                placeholder="Ask anything about sports cars...">
+
+            <button id="sendBtn">
+
+                Send
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
