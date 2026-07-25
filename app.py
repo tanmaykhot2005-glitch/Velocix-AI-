@@ -1,6 +1,7 @@
 from collections import Counter
 from flask import Flask, render_template, request, jsonify
 from chatbot import get_ai_response
+from agent import run_agent
 import json
 
 app = Flask(__name__)
@@ -150,25 +151,20 @@ def chat():
 @app.route("/agent")
 def agent():
     query = request.args.get("query", "")
-    cars = load_cars()
 
+    reply = ""
     results = []
 
     if query:
-
-        search_text = query.lower()
-
-        for car in cars:
-
-            if (
-                search_text in car["brand"].lower()
-                or search_text in car["model"].lower()
-            ):
-                results.append(car)
+        try:
+            reply, results = run_agent(query)
+        except Exception as e:
+            reply = f"Error: {str(e)}"
 
     return render_template(
         "agent.html",
         query=query,
+        reply=reply,
         results=results
     )
 
