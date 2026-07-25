@@ -41,6 +41,13 @@ def parse_acceleration(acc_str):
 # to call. It runs real filtering logic on your database.
 # ==========================================================
 
+def parse_horsepower(hp_value):
+    if isinstance(hp_value, (int, float)):
+        return int(hp_value)
+    match = re.search(r"(\d+)", str(hp_value))
+    return int(match.group(1)) if match else 0
+
+
 def search_cars(brand=None, category=None, min_horsepower=None,
                  max_price=None, max_acceleration=None, min_top_speed=None):
     cars = load_cars()
@@ -51,7 +58,9 @@ def search_cars(brand=None, category=None, min_horsepower=None,
             continue
         if category and category.lower() != car["category"].lower():
             continue
-        if min_horsepower and car["horsepower"] < min_horsepower:
+
+        horsepower = parse_horsepower(car["horsepower"])
+        if min_horsepower and horsepower < min_horsepower:
             continue
 
         price = parse_price(car["price"])
@@ -69,7 +78,7 @@ def search_cars(brand=None, category=None, min_horsepower=None,
         results.append(car)
 
     # Rank by horsepower so the strongest matches surface first
-    results.sort(key=lambda c: c["horsepower"], reverse=True)
+    results.sort(key=lambda c: parse_horsepower(c["horsepower"]), reverse=True)
     return results[:5]
 
 
@@ -153,4 +162,4 @@ def run_agent(user_query):
         messages=messages,
     )
 
-    return final_response.choices[0].message.content, matched_cars;
+    return final_response.choices[0].message.content, matched_cars
